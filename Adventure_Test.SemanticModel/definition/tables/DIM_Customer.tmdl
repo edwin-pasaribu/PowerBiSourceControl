@@ -1,0 +1,98 @@
+table DIM_Customer
+	lineageTag: ef126ea0-bfcc-44cc-bd78-6da62990fa07
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6aeca1e6-2c29-485d-b60d-3124c509a293
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer ID'
+		dataType: string
+		lineageTag: 486e9e8f-47d8-4372-b483-c4d4c79342c0
+		summarizeBy: none
+		sourceColumn: Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer
+		dataType: string
+		lineageTag: 00010983-ba58-4bd3-8d60-5c2a04cb20d2
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: cc52e70a-d76f-4385-9c58-3813db29ff14
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column State-Province
+		dataType: string
+		lineageTag: 76e71159-9099-482a-b2c8-a5b66b64c259
+		summarizeBy: none
+		sourceColumn: State-Province
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'State / *Prov.  Abr.'
+		dataType: string
+		lineageTag: 62ec1844-71d3-4457-8502-f55079b49fc5
+		summarizeBy: none
+		sourceColumn: State / *Prov.  Abr.
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country-Region
+		dataType: string
+		lineageTag: eeb76249-09e5-49ba-9fd7-bd375efd0514
+		summarizeBy: none
+		sourceColumn: Country-Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Postal Code'
+		dataType: string
+		lineageTag: 8c8d7049-87ba-4946-8f73-5fa6d4dd59e2
+		summarizeBy: none
+		sourceColumn: Postal Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Abr.'
+		dataType: string
+		lineageTag: ad7f3380-ffbd-4d1f-a456-7b8497e94128
+		summarizeBy: none
+		sourceColumn: Country Abr.
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country Image URL'
+		dataType: string
+		lineageTag: f4430974-54a1-48c3-926b-c9d8d3551f80
+		summarizeBy: none
+		sourceColumn: Country Image URL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_Customer = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\Learning\Power BI Git Integration Testing\Adventure Works_Dataset - ORI.xlsx"), null, true),
+				    DIM_Customer_Table = Source{[Item="DIM_Customer",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(DIM_Customer_Table,{{"CustomerKey", Int64.Type}, {"Customer ID", type text}, {"Customer", type text}, {"City", type text}, {"State-Province", type text}, {"State / *Prov.  Abr.", type text}, {"Country-Region", type text}, {"Postal Code", type text}, {"Country Abr.", type text}, {"Country Image URL", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,4 @@
+relationship AutoDetected_bacec67d-7123-4b37-ae50-b02327c57633
+	fromColumn: FACT_Sales.CustomerKey
+	toColumn: DIM_Customer.CustomerKey
+
