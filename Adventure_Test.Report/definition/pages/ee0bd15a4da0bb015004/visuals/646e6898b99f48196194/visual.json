@@ -5,8 +5,8 @@
     "x": 43.588039867109636,
     "y": 35.083056478405311,
     "z": 0,
-    "height": 311.49501661129568,
-    "width": 539.00332225913621,
+    "height": 386.97674418604652,
+    "width": 596.41196013289039,
     "tabOrder": 0
   },
   "visual": {
@@ -71,5 +71,37 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4c5cf440e16e713ed7e9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_Customer"
+              }
+            },
+            "Property": "Country-Region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "652df108b3af43164e3d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Measures (2)"
+              }
+            },
+            "Property": "Sales"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
