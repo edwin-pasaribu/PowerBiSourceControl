@@ -1,19 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "646e6898b99f48196194",
+  "name": "74df06097211234bd36b",
   "position": {
-    "x": 43.588039867109636,
-    "y": 35.083056478405311,
+    "x": 59.534883720930232,
+    "y": 46.777408637873755,
     "z": 0,
-    "height": 311.49501661129568,
-    "width": 539.00332225913621,
+    "height": 518.80398671096339,
+    "width": 733.5548172757475,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "treemap",
     "query": {
       "queryState": {
-        "Category": {
+        "Group": {
           "projections": [
             {
               "field": {
@@ -23,30 +23,35 @@
                       "Entity": "DIM_Customer"
                     }
                   },
-                  "Property": "Country-Region"
+                  "Property": "Country Abr."
                 }
               },
-              "queryRef": "DIM_Customer.Country-Region",
-              "nativeQueryRef": "Country-Region",
+              "queryRef": "DIM_Customer.Country Abr.",
+              "nativeQueryRef": "Country Abr.",
               "active": true
             }
           ]
         },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "Measures (2)"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FACT_Sales"
+                        }
+                      },
+                      "Property": "Unit Price"
                     }
                   },
-                  "Property": "Sales"
+                  "Function": 0
                 }
               },
-              "queryRef": "Measures (2).Sales",
-              "nativeQueryRef": "Sales"
+              "queryRef": "Sum(FACT_Sales.Unit Price)",
+              "nativeQueryRef": "Sum of Unit Price"
             }
           ]
         }
@@ -55,13 +60,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "Measures (2)"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FACT_Sales"
+                      }
+                    },
+                    "Property": "Unit Price"
                   }
                 },
-                "Property": "Sales"
+                "Function": 0
               }
             },
             "direction": "Descending"
