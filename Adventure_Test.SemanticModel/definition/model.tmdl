@@ -15,6 +15,9 @@ annotation PBI_ProTooling = ["DevMode"]
 ref table FACT_Sales
 ref table DIM_Customer
 ref table 'Measures (2)'
+ref table dim_calendar
+ref table DateTableTemplate_8c9da49b-4bc4-4dc3-93c0-84b5a701dfcf
+ref table LocalDateTable_ea598a84-002d-4831-88f9-54c6a5d2e128
 
 ref cultureInfo en-US
 

@@ -2,3 +2,8 @@ relationship AutoDetected_bacec67d-7123-4b37-ae50-b02327c57633
 	fromColumn: FACT_Sales.CustomerKey
 	toColumn: DIM_Customer.CustomerKey
 
+relationship 55235a39-65f4-4357-b75b-f7b1aec95d0e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_calendar.Date
+	toColumn: LocalDateTable_ea598a84-002d-4831-88f9-54c6a5d2e128.Date
+

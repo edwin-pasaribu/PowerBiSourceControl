@@ -1,0 +1,23 @@
+table dim_calendar
+	lineageTag: b3b0002c-08af-407e-a24b-3464d8a6ba0a
+
+	column Date
+		formatString: General Date
+		lineageTag: caf90564-acbb-4130-9a15-5e4bd2a625ca
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 55235a39-65f4-4357-b75b-f7b1aec95d0e
+			defaultHierarchy: LocalDateTable_ea598a84-002d-4831-88f9-54c6a5d2e128.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_calendar = calculated
+		mode: import
+		source = CALENDAR(01/01/2023, 01/01/2026)
+
+	annotation PBI_Id = 2ccba035a0fe44dd89741ce846cc9c72
+
